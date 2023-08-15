@@ -1,4 +1,4 @@
-ggvar fluidPlayerScriptLocation = function() {
+var fluidPlayerScriptLocation = function() {
 	var e, t, i = "";
 	return (i = document.currentScript ? document.currentScript.src : (e = document.getElementsByTagName("script"), void 0 !== (t = e[e.length - 1]).getAttribute.length ? t.src : t.getAttribute("src", -1))) ? i.substring(0, i.lastIndexOf("/") + 1) : ""
 }();
