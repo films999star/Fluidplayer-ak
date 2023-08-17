@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<head>
+
+<link href='https://www.blogger.com/static/v1/widgets/55013136-widget_css_bundle.css' rel='stylesheet' type='text/css'/>
+
+<title>Ak-Player</title>
+
+
+<link href='https://cdn.jsdelivr.net/gh/ak8750/Hls-plyr/hide_plyr_styles.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/ak8750/Hls-plyr/hide_plyr_logo.css' rel='stylesheet'/>
+
+
+</head>
+<body>
+<div class='th no-items section' id='header'></div>
+<div class='no-items section' id='contoh'></div>
+<style>
+
+.embed {
+    position: absolute;
+    background: none;
+    top: 2px;
+    z-index: 999;
+    color: aqua;
+    font-family: sans-serif;
+    font-size: 18px;
+    border: 0;
+    font-weight: 600;
+    right: 10px;
+}
+	</style>
+<script src='https://cdn.plyr.io/3.7.8/plyr.js'></script>
+
+<script>
+/*<![CDATA[*/
+		var apikey = "AIzaSyCH4I2OxQnocrzdiZLeLOSI6GOnkuUR-yI";//Your Drive Api Key
+        var eid="";
+        var video="";
+        var embed="";
+
+        if(!getParameterByName('id') || getParameterByName('ib')){
+          var eid = prompt('URL DRIVE ID :- ');
+          embed = `
+<iframe allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='true' frameborder='0' height='100%' scrolling='no' src='${location.href}?id=${eid}' width='100%'></iframe>
+          `;
+          prompt('Copy to Embedded Code :- ',embed);
+          window.location.href = window.location.href+'?id='+eid;
+        } 
+        video = getParameterByName('id') ;
+        if(getParameterByName('ib')){
+            video = btoa(getParameterByName('ib'));
+        }
+        var vidurl = "https://www.googleapis.com/drive/v3/files/"+video+"?alt=media&key="+apikey;
+      console.log(vidurl)
+        document.write("<video controls crossorigin playsinline class='js-player' data-poster='https://1.bp.blogspot.com/-beLFaUr5tUc/X4ako2fhuGI/AAAAAAAAAG0/Boq3InKjR0Yar51c3RLlQhHC13IFCQCRgCK4BGAYYCw/s1600/PicsArt_10-13-07.32.06.png/' id='player' src='" + vidurl + "'></video>");
+
+
+function getembed(){
+            var code = `
+<iframe allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='true' frameborder='0' height='100%' scrolling='no' src='${location.href}?id=${video}' width='100%'></iframe>
+          `;
+          prompt('Here is Your Embed Code :- ',code);
+}
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+/*]]>*/
+
+</script>
+
+
+<script>
+
+   /*<![CDATA[*/
+
+document.addEventListener('DOMContentLoaded', () => {
+        
+         
+        const controls = [
+            'play-large', 
+            'rewind',
+            'play',
+            'fast-forward',
+            'progress', 
+            'current-time', 
+            'duration', 
+            'mute', 
+            'volume', 
+                      
+            'settings',
+            'pip',  
+            'airplay', 
+            'download', 
+            'fullscreen'];
+
+        const player = Plyr.setup('.js-player', { controls });
+
+    });
+  /*]]>*/
+</script>
+
+<script src='https://www.blogger.com/static/v1/widgets/229717095-widgets.js' type='text/javascript'></script>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/2789723018-widgets.js"></script>
+
+
+</body>
+</html>
